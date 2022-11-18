@@ -22,16 +22,32 @@ const crearNuevaLinea = (nombre, email) => {
 	linea.innerHTML = contenido;
 	return linea;
 };
-
 const table = document.querySelector("[data-table]");
-const http = new XMLHttpRequest();
-http.open("GET", "http://localhost:3000/perfil");
-http.send();
 
-http.onload = () => {
-	const data = JSON.parse(http.response);
-	data.forEach((perfil) => {
-		const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
-		table.appendChild(nuevaLinea);
+const listaClientes = () => {
+	const promise = new Promise((resolve, reject) => {
+		const http = new XMLHttpRequest();
+		http.open("GET", "http://localhost:3000/perfil");
+
+		http.send();
+
+		http.onload = () => {
+			const response = JSON.parse(http.response);
+			if (http.status >= 400) {
+				reject(response);
+			} else {
+				resolve(response);
+			}
+		};
 	});
+
+	return promise;
 };
+listaClientes()
+	.then((data) => {
+		data.forEach((perfil) => {
+			const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
+			table.appendChild(nuevaLinea);
+		});
+	})
+	.catch((error) => alert("ocurrio un error"));
