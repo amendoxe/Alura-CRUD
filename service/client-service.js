@@ -10,7 +10,15 @@ const crearCliente = (nombre, email) => {
 		body: JSON.stringify({ nombre, email, id: uuid.v4() }) //Aquí escribimos toda la información que queremos enviar, RECUERDA que el servidor maneja la información en forma de string ( JSON.stringify()).
 	});
 };
+
+const eliminarCliente = (id) => {
+	return fetch(`http://localhost:3000/perfil/${id}`, {
+		method: "DELETE"
+	});
+};
+
 export const clientServices = {
 	listaClientes,
-	crearCliente
+	crearCliente,
+	eliminarCliente
 };

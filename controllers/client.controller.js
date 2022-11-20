@@ -1,7 +1,5 @@
 import { clientServices } from "../service/client-service.js";
 
-console.log(clientServices);
-
 const crearNuevaLinea = (nombre, email, id) => {
 	console.log(id);
 	const linea = document.createElement("tr");
@@ -18,13 +16,20 @@ const crearNuevaLinea = (nombre, email, id) => {
 					</a>
 				</li>
 				<li>
-					<button class="simple-button simple-button--delete" type="button">
+					<button class="simple-button simple-button--delete" type="button" id="${id}">
 						Eliminar
 					</button>
 				</li>
 			</ul>
 		</td>`;
 	linea.innerHTML = contenido;
+	const btn = linea.querySelector("button");
+	btn.addEventListener("click", () => {
+		const id = btn.id;
+		clientServices.eliminarCliente(id).then((respuesta) => {
+			console.log(respuesta).catch((err) => alert("Ocurrio un error", err));
+		});
+	});
 	return linea;
 };
 const table = document.querySelector("[data-table]");
