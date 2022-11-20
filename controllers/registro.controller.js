@@ -4,11 +4,11 @@ const formulario = document.querySelector("[data-form]");
 formulario.addEventListener("submit", (evento) => {
 	evento.preventDefault();
 	const nombre = document.querySelector("[data-nombre]").value;
-	const mail = document.querySelector("[data-email]").value;
+	const email = document.querySelector("[data-email]").value;
 	console.log("nombre:", nombre);
-	console.log("mail:", mail);
+	console.log("mail:", email);
 	clientServices
-		.crearCliente(nombre, mail)
+		.crearCliente(nombre, email)
 		.then((respuesta) => {
 			window.location.href = "/screens/registro_completado.html";
 		})

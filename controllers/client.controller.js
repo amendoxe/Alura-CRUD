@@ -2,7 +2,8 @@ import { clientServices } from "../service/client-service.js";
 
 console.log(clientServices);
 
-const crearNuevaLinea = (nombre, email) => {
+const crearNuevaLinea = (nombre, email, id) => {
+	console.log(id);
 	const linea = document.createElement("tr");
 	const contenido = `
 		<td class="td" data-td>
@@ -31,8 +32,8 @@ const table = document.querySelector("[data-table]");
 clientServices
 	.listaClientes()
 	.then((data) => {
-		data.forEach((perfil) => {
-			const nuevaLinea = crearNuevaLinea(perfil.nombre, perfil.email);
+		data.forEach(({ nombre, email, id }) => {
+			const nuevaLinea = crearNuevaLinea(nombre, email, id);
 			table.appendChild(nuevaLinea);
 		});
 	})
