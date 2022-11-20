@@ -4,6 +4,31 @@
       "nombre": "Harland Lohora",
       "email": "harland@alura.com",
       "id": 1
+    },
+    {
+      "nombre": "Jimmy",
+      "mail": "Jimmy@neutronion.com",
+      "id": "9ba4159e-b284-4d95-9fc0-f1c4d7a9e5ff"
+    },
+    {
+      "nombre": "Juanelo",
+      "mail": "juanelo@neutronion.com",
+      "id": "4188fded-771e-40c7-8088-756d84997630"
+    },
+    {
+      "nombre": "Fulanite",
+      "mail": "fulanite@neutronion.com",
+      "id": "aefe7cad-0807-42a3-a743-49031c9e64c3"
+    },
+    {
+      "nombre": "Perenganite",
+      "mail": "perenganite@neutronion.com",
+      "id": "e3e886b3-4937-48cc-875a-528b31e1411e"
+    },
+    {
+      "nombre": "Perenganite",
+      "mail": "perenganite@neutronion.com",
+      "id": "37d0c0b9-e3a2-4cfa-8a49-7232d90b9a14"
     }
   ]
 }
